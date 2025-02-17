@@ -4,6 +4,8 @@ import com.MyProject.JournalApplication.Entity.JournalEntry;
 import com.MyProject.JournalApplication.Entity.User;
 import com.MyProject.JournalApplication.Service.JournalEntryService;
 import com.MyProject.JournalApplication.Service.UserService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -18,6 +20,7 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/journal")
+@Tag(name = "Journal APIs")
 public class JournalEntryController {
 
     @Autowired
@@ -27,7 +30,8 @@ public class JournalEntryController {
     private UserService userService;
 
     @GetMapping
-    public ResponseEntity<?> getAllJournalEntriesOfUser(){ // localhost:8080/journal GET
+    @Operation(summary = "Get all journal entries of a user")
+    public ResponseEntity<?> getAllJournalEntriesOfUser(){
 
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String userName =  authentication.getName();

@@ -3,8 +3,8 @@ package com.MyProject.JournalApplication.Service;
 import com.MyProject.JournalApplication.api.response.WeatherResponse;
 import com.MyProject.JournalApplication.cache.AppCache;
 import com.MyProject.JournalApplication.constaints.PlaceHolders;
-import lombok.Value;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
@@ -15,7 +15,8 @@ import org.springframework.web.client.RestTemplate;
 @Service
 public class WeatherService {
 
-    V("${api.key}")
+
+    @Value("${api.key}")
     private String apikey;
 
 
