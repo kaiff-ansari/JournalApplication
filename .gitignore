@@ -1,6 +1,6 @@
 # Ignore specific configuration files
 src/main/resources/application.properties
-config.yml
+*.yml
 
 # Ignore log files
 *.log
